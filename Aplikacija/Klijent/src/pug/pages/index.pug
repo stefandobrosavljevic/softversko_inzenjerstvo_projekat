@@ -1,0 +1,41 @@
+extends ../layouts/dashboard.pug
+
+block config
+    - var bodyClass = 'sb-nav-fixed'
+    - var pageTitle = 'Izdavanje lekova';
+    - var index = true;
+    - var sidenavStyle = 'sb-sidenav-dark'
+    
+append css
+    link(href='https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css', rel='stylesheet', crossorigin='anonymous')
+
+block content
+    .container-fluid
+        include includes/page-header.pug
+        
+        
+        .content
+            .card.mb-4#kasatabela.col-xl-9
+                .card-header
+                    i.fas.fa-capsules
+                    | Izabrani lekovi za izdavanje
+                .card-body
+                    include includes/kasatable.pug
+            
+            .buttons-container 
+                .buttons.opcije
+                    button.dugmeDesno.dugmeIzdaj
+                        |Izdaj lekove
+                    button.prikazCene
+                        |
+                    button.dugmeDodajLekove
+                        | Dodaj lekove
+
+
+append scripts
+    
+    //- ZA TABELE SKRIPTE
+    script(src='https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js', crossorigin='anonymous')
+    script(src='https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js', crossorigin='anonymous')
+    script(src='js/kasa/kasa.js', type="module")
+    

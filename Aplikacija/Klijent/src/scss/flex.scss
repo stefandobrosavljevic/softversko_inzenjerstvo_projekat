@@ -1,0 +1,74 @@
+@include media-breakpoint-down(xl) { 
+    .content{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .product-entry{
+        flex-direction: column;
+    }
+
+    .dugmiciZaZaposlenog{
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        max-width: 100%;
+    }
+    #dropdownObavestenja{
+        right: 0px;
+        left: -320px;
+    }
+    #podaci-poz{
+        margin-bottom: 0px;
+    }
+    .body-prikaz{
+        border-bottom: 0px solid white ;
+    }
+
+    #profilLeka{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        img{
+            margin-top: 10px;
+        }
+    }
+
+}
+
+
+
+@include media-breakpoint-up(xl) { 
+    .content{
+        display: flex;
+        flex-direction: row;
+    }
+    .product-entry{
+        flex-direction: row;
+    }
+    .dugmiciZaZaposlenog{
+        display: inherit;
+        max-width: 50%;
+    }
+    #dropdownObavestenja{
+        margin-right: 0;
+    }
+    #podaci-poz{
+        margin-bottom: 50px;
+    }
+    .body-prikaz{
+        border-bottom: 1px solid rgba(0, 0, 0, 0.125)
+    }
+
+    #profilLeka{
+        display: flex;
+        flex-direction: row;
+        img{
+            margin-top: 0px;
+        }
+    }
+}
+

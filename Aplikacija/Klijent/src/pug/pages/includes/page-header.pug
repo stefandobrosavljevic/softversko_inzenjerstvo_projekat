@@ -1,0 +1,30 @@
+h1.mt-4 #{pageTitle}
+if index
+    ol.breadcrumb.mb-4
+        li.breadcrumb-item.active #{pageTitle}
+
+else if zaposleniProfil 
+    ol.breadcrumb.mb-4
+        li.breadcrumb-item 
+            a(href='zaposleni.html') Zaposleni 
+        li.breadcrumb-item.active #{pageTitle}
+
+
+
+else if lekIndex 
+    ol.breadcrumb.mb-4
+        li.breadcrumb-item 
+            a(href='spisaklekova.html') Spisak lekova 
+        li.breadcrumb-item.active #{pageTitle}
+
+else if apotekaProfil 
+    ol.breadcrumb.mb-4
+        li.breadcrumb-item 
+            a(href='apoteke.html') Apoteke
+        li.breadcrumb-item.active #{pageTitle}
+
+
+
+else
+    ol.breadcrumb.mb-4
+        li.breadcrumb-item.active #{pageTitle}

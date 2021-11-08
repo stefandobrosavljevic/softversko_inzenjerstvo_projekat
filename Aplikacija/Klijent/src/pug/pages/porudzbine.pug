@@ -1,0 +1,88 @@
+extends ../layouts/dashboard.pug
+
+block config
+    - var bodyClass = 'sb-nav-fixed'
+    - var pageTitle = 'Porudžbine';
+    - var sidenavStyle = 'sb-sidenav-dark'
+    
+append css
+    link(href='https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css', rel='stylesheet', crossorigin='anonymous')
+ 
+
+block content
+    .container-fluid
+        include includes/page-header.pug
+
+        .content
+            .card.mb-4.col-xl-9
+                .card-header
+                    i.fas.fa-box-open
+                    | Porudžbine
+                .card-body
+                    include includes/porudzbine-table.pug
+            .buttons-container 
+                    .buttons
+                        button.dugmeDodajPorudzbinu.dugmeDesno
+                            |Dodaj novu porudžbinu
+                        //- button.dugmeDesno(data-toggle="modal", data-target="#ModalPorudzbina")
+                        //-     |Otvori modal primer
+
+
+        .modal.fade#ModalPorudzbina(tabindex="-1", role="dialog", aria-labelledby="exampleModalCenterTitle", aria-hidden="true")
+            .modal-dialog.modal-lg.modal-dialog-centered(role="document")
+                .modal-content#modalLekovi
+                    .modal-header 
+                        h5.modal-title 
+                            |Porudžbina
+                        button.close(type="button", data-dismiss="modal", aria-label="Close")
+                            span(aria-hidden="true")
+                                |&times;
+                    .modal-body
+                        include includes/porudzbina-lekovi.pug
+                    .modal-footer#ModalPorudzbinaLekoviFooter
+                        //- button.btn.btn-success#PotvrdiPorudzbinu(type="button")
+                        //-     |Prihvati porudžbinu
+                        //- button.btn.btn-danger#OdbijPorudzbinu(type="button")
+                        //-     |Odbij porudžbinu
+                        //- button.btn.btn-warning#DodajLekovePorudzbina(type="button", data-toggle="modal", data-target="#ModalPorudzbinaDodajLek")
+                        //-     |Dodaj lekove
+
+
+        .modal.fade#ModalPorudzbinaDodajLek(tabindex="-1", role="dialog", aria-labelledby="exampleModalCenterTitle", aria-hidden="true")
+            .modal-dialog.modal-dialog-centered(role="document")
+                .modal-content#modalLekovi
+                    .modal-header 
+                        h5.modal-title 
+                            |Lekovi
+                        button.close(type="button", data-dismiss="modal", aria-label="Close")
+                            span(aria-hidden="true")
+                                |&times;
+                    .modal-body
+                        include includes/porudzbina-spisakLekova.pug
+                    .modal-footer#ModalPorudzbinaLekoviFooter
+                        button.btn.btn-primary#DodajLekoveUPorudzbinu(type="button", data-dismiss="modal")
+                            |Dodaj lekove
+        
+        .modal.fade#ModalObrisiPorudzbinu(tabindex="-1", role="dialog", aria-labelledby="exampleModalCenterTitle", aria-hidden="true")
+            .modal-dialog.modal-dialog-centered(role="document")
+                .modal-content 
+                    .modal-body 
+                        h1 
+                            |Brisanje porudžbine 
+                        h3 
+                            |Da li ste sigurni da želite da obrišete porudžbinu?
+
+                    .modal-footer
+                        button.btn.btn-secondary#dugmeOtkaziBrisanje(type="button", data-dismiss="modal")
+                            |Otkaži
+                        button.btn.btn-danger#dugmePotvrdiBrisanje(type="button", data-dismiss="modal")
+                            |Obriši
+
+append scripts
+    
+    //- ZA TABELE SKRIPTE
+    script(src='https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js', crossorigin='anonymous')
+    script(src='https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js', crossorigin='anonymous')
+    script(src='js/porudzbine/porudzbine.js', type="module")
+
+

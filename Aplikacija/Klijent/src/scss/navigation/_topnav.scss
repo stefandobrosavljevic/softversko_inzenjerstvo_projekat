@@ -1,0 +1,63 @@
+// Base styling for the topnav
+
+.sb-topnav {
+    padding-left: 0;
+    height: $topnav-base-height;
+    z-index: $zindex-topnav;
+    .navbar-br{
+    width: $sidenav-base-width;
+        .navbar-brand {
+            width: 95px;
+            padding-left: $navbar-padding-x;
+            padding-right: $navbar-padding-x;
+            margin: 0;
+        }
+    }
+
+
+    &.navbar-dark {
+        #sidebarToggle {
+            color: $topnav-dark-toggler-color;
+        }
+    }
+    &.navbar-light {
+        #sidebarToggle {
+            color: $topnav-light-toggler-color;
+        }
+    }
+}
+
+
+
+
+
+#notificationDropdown , #userDropdown{
+    background-color: #343a40 !important; /* Blue background */
+    border: none; /* Remove borders */
+    color: white; /* White text */
+    font-size: 16px; /* Set a font size */
+    cursor: pointer; /* Mouse pointer on hover */
+    margin: 0 5px;
+
+}
+
+#notificationDropdown{
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    p{
+        background-color: red;
+        border-radius: 50%;
+        width: 19px;
+        height: 19px;
+        font-size: 12px;
+    }
+}
+
+
+img{
+    width: 110px;
+    height: auto;
+}

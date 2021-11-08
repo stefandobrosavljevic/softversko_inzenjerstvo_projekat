@@ -1,0 +1,97 @@
+extends ../layouts/dashboard.pug
+
+block config
+    - var bodyClass = 'sb-nav-fixed'
+    - var pageTitle = 'Profil zaposlenog';
+    - var zaposleniProfil = true;
+    - var sidenavStyle = 'sb-sidenav-dark'
+    
+append css
+
+
+
+block content
+    .container-fluid
+        include includes/page-header.pug
+
+    .card.mb-9.body-prikaz
+        .card-body
+            .row.card-body
+                .col-xl-10
+                    article.product-entry.product-blue.clearfix.col-xl-12
+                        .col-xl-10.col-md-9.podaci-pozicija
+                            .imePrezimePodaci
+                                p.imeZaposleni.pod1
+                                    |
+                                p.prezimeZaposleni.pod1
+                                    |
+                            h3.userNameZaposleni.pod1
+                                |
+                            p.emailZaposleni.pod1
+                                |
+                            p.telefonZaposleni.pod1
+                                |
+                            p.ulogaZaposleni.pod1
+                                |
+                        
+                        .col-sm-1.dugmiciZaZaposlenog
+                            button.dugmeIzmeniZaposlenog(data-toggle="modal", data-target="#ModalIzmeniZaposlenog")
+                                |Izmeni
+                            button.dugmeObrisiZaposlenog(data-toggle="modal", data-target="#ModalObrisiZaposlenog")
+                                |Obriši zaposlenog
+
+    .modal.fade#ModalIzmeniZaposlenog(tabindex="-1", role="dialog", aria-labelledby="exampleModalCenterTitle", aria-hidden="true")
+            .modal-dialog.modal-dialog-centered(role="document")
+                .modal-content 
+                    .modal-header 
+                        h5.modal-title 
+                            |Izmena podataka zaposlenog
+                        button.close(type="button", data-dismiss="modal", aria-label="Close")
+                            span(aria-hidden="true")
+                                |&times;
+                    .modal-body
+                        form(action="#")
+                            .form-inline.form-group
+                                label.col-form-label(for="izmeniZaposlenogIme") 
+                                    |Ime 
+                                input.form-control(type="text", id="izmeniZaposlenogIme")
+                            .form-group 
+                                label.col-form-label(for="izmeniZaposlenogPrezime") 
+                                    |Prezime
+                                input.form-control(type="text", id="izmeniZaposlenogPrezime")
+                            .form-group 
+                                label.col-form-label(for="izmeniZaposlenogEmail") 
+                                    |Email 
+                                input.form-control(type="text", id="izmeniZaposlenogEmail")
+                            .form-group 
+                                label.col-form-label(for="izmeniZaposlenogTelefon") 
+                                    |Telefon
+                                input.form-control(type="text", id="izmeniZaposlenogTelefon")
+
+                    .modal-footer
+                        button.btn.btn-primary#dugmeSacuvajZaposlenog(type="button", data-dismiss="modal")
+                            |Sačuvaj 
+
+    .modal.fade#ModalObrisiZaposlenog(tabindex="-1", role="dialog", aria-labelledby="exampleModalCenterTitle", aria-hidden="true")
+            .modal-dialog.modal-dialog-centered(role="document")
+                .modal-content 
+                    .modal-body 
+                        h1 
+                            |Brisanje zaposlenog
+                        h5.modal-text-obrisiZaposlenog
+                            |
+
+                    .modal-footer
+                        button.btn.btn-secondary#dugmeOtkaziBrisanje(type="button", data-dismiss="modal")
+                            |Otkaži
+                        button.btn.btn-danger#dugmePotvrdiBrisanje(type="button", data-dismiss="modal")
+                            |Obriši
+                        
+                                
+
+append scripts
+    script(src="/js/zaposleniProfil/zaposleniProfil.js" , type="module")
+
+
+
+    

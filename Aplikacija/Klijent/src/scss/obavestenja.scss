@@ -1,0 +1,89 @@
+#dropdownObavestenja{
+    padding-top: 0;
+    min-width: 350px;
+    max-width: 500px;
+
+    p{
+        margin-bottom: 0;
+        display: flex;
+        justify-content: space-between;
+        word-break: normal;
+        white-space: normal;
+    }
+
+    #tekstPoruke{
+        font-size: 16px;
+        display: flex;
+        justify-content: space-between;
+    }
+   
+
+    .dropdown-divider{
+        margin: 0.2rem 0;
+    }
+
+    .dropdown-header{
+        padding: 0;
+        pointer-events: none;
+        font-size: 22px;
+        text-align: center;
+        font-weight: bold;
+    }
+    .dropdown-item{
+        background-color: rgb(248, 247, 247);
+        border-top: 0.5px solid rgb(186, 184, 184);
+        border-bottom: 0.5px solid rgb(186, 184, 184);
+        margin-bottom: 5px;
+    }
+
+    .dropdown-item:hover{
+        background-color: rgb(196, 196, 196);
+    }
+
+    .neprocitanaPoruka{
+        background-color: rgb(250, 220, 220);
+        //border-radius: 5%;
+    }
+}
+
+
+
+
+
+// if(index != 0){
+//     let devider = document.createElement("div");
+//     devider.className = "dropdown-divider";
+//     dropdown.appendChild(devider);
+// }
+
+// let div = document.createElement("div");
+// div.className = "dropdown-item";
+// if(obavestenje.status == 1){
+//     div.className += " neprocitanaPoruka";
+// }
+// let p = document.createElement("p");
+// p.id = "tekstPoruke";
+// p.appendChild( document.createTextNode(obavestenje.poruka.tekst) );
+// let button = document.createElement("button");
+// button.className = "close";
+// button.id = "obrisiObavestenje";
+// button.setAttribute("type", "button");
+// button.setAttribute("data-target", "dropdown");
+// button.setAttribute("aria-label", "dropdown");
+// button.setAttribute("style", "padding-left: 10px");
+
+// let span = document.createElement("span");
+// span.setAttribute("aria-hidder", "true");
+// span.innerHTML = "&times;";
+// button.appendChild(span);
+// p.appendChild(button);
+
+// div.appendChild(p);
+
+// p = document.createElement("p");
+// p.className = "small";
+// p.innerHTML = prebaciVreme(obavestenje.poruka.datum);
+// div.appendChild(p);
+
+
+// dropdown.appendChild(div);

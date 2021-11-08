@@ -1,0 +1,123 @@
+extends ../layouts/dashboard.pug
+
+block config
+    - var bodyClass = 'sb-nav-fixed'
+    - var pageTitle = 'Lek';
+    - var lekIndex = true;
+    - var sidenavStyle = 'sb-sidenav-dark'
+    
+append css
+
+
+
+block content
+    .container-fluid
+        include includes/page-header.pug
+
+    .card.mb-9.body-prikaz
+        .card-body
+            .row.card-body
+                .col-xl-12
+                    article.product-entry.product-blue.clearfix.col-xl-12#profilLeka
+                        .col-md-4.img-pozicija
+                            .img-container 
+                                .img-holder 
+                                    .centered 
+                                        img.img-responsive(src="../assets/img/default.png", alt="Lek slika")
+                        .col-sm-7.podaci-pozicija
+                            h1.imeLeka.pod
+                                |
+                            h3.sifraLeka.pod
+                                |
+                            .opis-container.pod 
+                                p.opisLeka 
+                                    |
+                            .kolicine
+                                p.kolicinaLeka.pod
+                                    |
+                                p.kriticnakolicinaLeka.pod
+                                    |
+                            p.deljivostLeka.pod
+                                |
+                            .paralele.pod
+                                p|
+                            .product-price.pod
+                                |
+                        
+                        .col-sm-1.dugmiciZaLek 
+                            //- button.dugmeIzmeniLek(data-toggle="modal", data-target="#ModalIzmeniLek")
+                            //-     |Izmeni
+                            //- button.dugmeObrisiLek(data-toggle="modal", data-target="#ModalObrisiLek")
+                            //-     |Obriši lek
+
+    .modal.fade#ModalIzmeniLek(tabindex="-1", role="dialog", aria-labelledby="exampleModalCenterTitle", aria-hidden="true")
+            .modal-dialog.modal-dialog-centered(role="document")
+                .modal-content 
+                    .modal-header 
+                        h5.modal-title 
+                            |Izmena leka
+                        button.close(type="button", data-dismiss="modal", aria-label="Close")
+                            span(aria-hidden="true")
+                                |&times;
+                    .modal-body
+                        form(action="#")
+                            p Globalni podaci o leku
+                            hr.solid
+                            .form-inline.form-group
+                                label.col-form-label(for="izmeniLekIme") 
+                                    |Ime 
+                                input.form-control(type="text", id="izmeniLekIme")
+                            .form-group 
+                                label.col-form-label(for="izmeniLekCena") 
+                                    |Cena
+                                input.form-control(type="number", id="izmeniLekCena")
+                            .form-group 
+                                label.col-form-label(for="izmeniLekOpis") 
+                                    |Opis 
+                                textarea.form-control(name="", cols="20", rows="5", id="izmeniLekOpis", type="text") 
+                            hr.solid
+                            p Podaci o leku vezani za ovu apoteku
+                            hr.solid
+                            .form-group 
+                                label.col-form-label(for="izmeniLekKolicina") 
+                                    |Količina
+                                input.form-control(type="number", id="izmeniLekKolicina")
+                            .form-group 
+                                label.col-form-label(for="izmeniLekKriticnaKolicina") 
+                                    |Kritična količina
+                                input.form-control(type="number", id="izmeniLekKriticnaKolicina")
+                            .form-group 
+                                label.col-form-label(for="dodajLekDeljiv") 
+                                    |Deljiv
+                                select#izmeniLekDeljiv.form-control
+                                    option(value='Da')| Da 
+                                    option(value='Ne')| Ne
+                            
+
+                    .modal-footer
+                        button.btn.btn-primary#dugmeSacuvajLek(type="button", data-dismiss="modal")
+                            |Sačuvaj 
+
+    .modal.fade#ModalObrisiLek(tabindex="-1", role="dialog", aria-labelledby="exampleModalCenterTitle", aria-hidden="true")
+            .modal-dialog.modal-dialog-centered(role="document")
+                .modal-content 
+                    .modal-body 
+                        h1 
+                            |Brisanje leka
+                        h5.modal-text-obrisiLek
+                            |
+
+                    .modal-footer
+                        button.btn.btn-secondary#dugmeOtkaziBrisanje(type="button", data-dismiss="modal")
+                            |Otkaži
+                        button.btn.btn-danger#dugmePotvrdiBrisanje(type="button", data-dismiss="modal")
+                            |Obriši
+                        
+                                
+
+append scripts
+    script(src="/js/lek/lek.js" , type="module")
+
+
+
+    

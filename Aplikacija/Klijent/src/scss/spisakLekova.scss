@@ -1,0 +1,223 @@
+.buttons-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    .buttons{
+        display: flex;
+        justify-content: center;
+        .dugmeDesno{
+            display: block;
+            cursor: pointer;
+            outline: none;
+            border: none;
+            background-color: rgb(67, 71, 75);
+            width: 200px;
+            height: 60px;
+            border-radius: 10px;
+            font-size: 20px;
+            font-weight: 600;
+            color: white;
+            background-size: 100% 100%;
+            margin: 10px 10px;
+            margin-bottom: 30px;
+        }
+    }
+}
+
+
+
+
+
+
+.content{
+    display: flex;
+    flex-direction: row;
+    //ZA DEMONSTRACIJU DA DUGMICI RADE
+    //height: 1000px;
+    .card{
+        margin-right: 50px;
+    }
+    .buttons-container .buttons{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+    }
+}
+
+.kolicinaTabela{
+    width: 150px;
+}
+
+
+#spisakLekovaTable{
+    tr td{
+        height: auto;
+        padding: 0.1rem;
+        text-align: center;
+        vertical-align: middle;
+        
+    }
+    
+    th{
+        text-align: center;
+        vertical-align: middle;
+    }
+}
+
+.Prikaz{
+    // max-width: 400px;
+    // min-width: 200px;
+    // width: max-content;
+    // height: max-content;
+    text-align: center;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    th{
+        display: block;
+        height: 100%;
+        width: 100%;
+    }
+    //margin-top: 5px;
+    border-top-width: 0;
+
+    .prikazInput{
+        margin: 0 15px;
+        width: 60px;
+        height: 30px;
+        border: 1px solid gray;
+        border-radius: 3px;
+        outline: none;
+        text-align: center;
+    }
+    #buttonPrikaz{
+        border: 2px solid black;
+        background-color: white;
+        color: black;
+        padding: 3px 13px;
+        font-size: 17px;
+        cursor: pointer;
+        margin: 0px 15px;
+
+    }
+    #buttonPrikaz:hover{
+        background-color: rgb(187, 185, 185);
+    }
+
+    
+    .selectKutijeTable{
+        width: auto !important;
+        //margin: 3px 25%;
+        height: auto !important;
+    }
+
+
+}
+
+
+#ModalDodajLek{
+    .modal-body{
+        .form-group{
+            display: flex;
+            justify-content: space-between;
+            label{
+                margin-right: 30px;
+                font-size: 17px;
+            }
+            input, textarea, select{
+                width: 68%;
+            
+            }
+            select{
+                font-size: 17px;
+                text-align: start;
+            }
+        }
+    }
+    .modal-footer{
+        justify-content: center;
+       .btn{
+            width: 160px;
+        }
+    }
+}
+
+
+
+
+#podaciLeka{
+    display: flex;
+    flex-direction: column;
+    margin-left: 15px;
+}
+
+.labele{
+    background-color:lightblue;
+    margin: 10px;
+    label{
+        margin-right: 10px;
+        font-size: 20px;
+    }
+    .labelepodaci{
+        font-size: 23px;
+    }
+}
+
+.dugmici{
+    display: flex;
+    justify-content: center;
+}
+
+.inputpodaci{
+    font-size: 21.1px;
+}
+
+
+
+.checkbox, .checkboxPorudzbina{
+    zoom: 1.5;
+    transform: scale(1.5);
+    -ms-transform: scale(1.5);
+    -webkit-transform: scale(1.5);
+    -o-transform: scale(1.5);
+    -moz-transform: scale(1.5);
+}
+
+
+
+
+#tabelaParalele{
+
+    width: 100%;
+    height: auto;
+
+    th, td{
+        font-size: 15px;
+        font-weight: 400;
+        border: 1px solid black;
+        border-collapse: collapse;
+        text-align: center;
+        height: auto;
+        padding: 0;
+    }
+
+    th{
+        font-weight: 650;
+    }
+    .paraleleIme{
+        width: 35%;
+    }
+    .paraleleApoteka{
+        width: 55%;
+    }
+    .paraleleKolicina{
+        width: 10%;
+    }
+}
+
+

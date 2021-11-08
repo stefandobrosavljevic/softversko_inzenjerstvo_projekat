@@ -1,0 +1,69 @@
+#zaposleniTable{
+    tr td{
+        height: 30px;
+        padding: 0.2rem;
+        text-align: left;
+        vertical-align: middle;
+    }
+    
+    .PrikazZaposlenog{
+        text-align: center;
+        max-width: 150px;
+        min-width: 150px;
+        text-align: center;
+        #buttonPrikazZaposlenog{
+            border: 2px solid black;
+            background-color: white;
+            color: black;
+            padding: 3px 13px;
+            font-size: 17px;
+            cursor: pointer;
+        }
+        #buttonPrikazZaposlenog:hover{
+            background-color: rgb(187, 185, 185);
+        }
+    }
+
+    th{
+        height: 20px;
+        text-align: left;
+    }
+}
+
+
+
+#ModalDodajZaposlenog{
+    .modal-body{
+        .form-group{
+            display: flex;
+            justify-content: space-between;
+            label{
+                margin-right: 30px;
+                font-size: 17px;
+            }
+            input, textarea, select{
+                width: 68%;
+            
+            }
+            #dodajZaposlenogLozinka{
+                width: 49%;
+            }
+            select{
+                font-size: 17px;
+                text-align: start;
+            }
+            #togglePassword{
+                border-radius: 50%;
+                background-color: white;
+                outline: none;
+                border: none;
+            }
+        }
+    }
+    .modal-footer{
+        justify-content: center;
+       .btn{
+            width: 160px;
+        }
+    }
+}

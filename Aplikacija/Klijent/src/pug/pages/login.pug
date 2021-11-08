@@ -1,0 +1,24 @@
+extends ../layouts/authentication.pug
+
+block content
+    .container
+        .row.justify-content-center
+            .col-lg-5
+                .card.shadow-lg.border-0.rounded-lg.mt-5
+                    .card-header
+                        #slikaLogo.justify-content-center
+                            img(src="../assets/img/logo_veliki.png", alt="ePharm")
+                    .card-body
+                        h3.text-center.font-weight-light.my-4 Login
+                        form
+                            .form-group
+                                label.small.mb-1(for='inputUsername') Korisničko ime
+                                input#inputUsername.form-control.py-4(type='text', placeholder='Unesite korisničko ime', autocomplete="off")
+                            .form-group
+                                label.small.mb-1(for='inputPassword') Lozinka
+                                input#inputPassword.form-control.py-4(type='password', placeholder='Unesite lozinku', autocomplete="off")
+                            .form-group.d-flex.align-items-center.justify-content-center.mt-4.mb-0
+                                a.btn.btn-primary.loginButton Login
+                            
+append scripts
+        script(src='js/login/login.js', type="module")

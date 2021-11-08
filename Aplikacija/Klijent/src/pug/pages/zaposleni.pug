@@ -1,0 +1,83 @@
+extends ../layouts/dashboard.pug
+
+block config
+    - var bodyClass = 'sb-nav-fixed'
+    - var pageTitle = 'Zaposleni';
+    - var sidenavStyle = 'sb-sidenav-dark'
+    
+append css
+    link(href='https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css', rel='stylesheet', crossorigin='anonymous')
+ 
+
+block content
+    .container-fluid
+        include includes/page-header.pug
+
+        .content
+            .card.mb-4.col-xl-9
+                .card-header
+                    i.fas.fa-users
+                    | Zaposleni
+                .card-body
+                    include includes/zaposleni-table.pug
+
+            .buttons-container 
+                    .buttons
+                        button.dugmeDodajZaposlenog.dugmeDesno(data-toggle="modal", data-target="#ModalDodajZaposlenog")
+                            |Dodaj novog zaposlenog
+    
+        .modal.fade#ModalDodajZaposlenog(tabindex="-1", role="dialog", aria-labelledby="exampleModalCenterTitle", aria-hidden="true")
+            .modal-dialog.modal-dialog-centered(role="document")
+                .modal-content 
+                    .modal-header 
+                        h5.modal-title 
+                            |Novi zaposleni
+                        button.close(type="button", data-dismiss="modal", aria-label="Close")
+                            span(aria-hidden="true")
+                                |&times;
+                    .modal-body
+                        form(action="#")#modal-body-forma
+                            .form-inline.form-group
+                                label.col-form-label(for="dodajZaposlenogKorisnickoIme") 
+                                    |Korisničko ime
+                                input.form-control(type="text", id="dodajZaposlenogKorisnickoIme")
+                            .form-inline.form-group
+                                label.col-form-label(for="dodajZaposlenogLozinka") 
+                                    |Lozinka 
+                                input.form-control(type="password", id="dodajZaposlenogLozinka")
+                                button#togglePassword
+                                    i.fa.fa-eye
+                            .form-inline.form-group
+                                label.col-form-label(for="dodajZaposlenogIme") 
+                                    |Ime 
+                                input.form-control(type="text", id="dodajZaposlenogIme")
+                            .form-group.form-inline
+                                label.col-form-label(for="dodajZaposlenogPrezime") 
+                                    |Prezime
+                                input.form-control(type="text", id="dodajZaposlenogPrezime")
+                            .form-group 
+                                label.col-form-label(for="dodajZaposlenogEmail") 
+                                    |Email
+                                input.form-control(type="text", id="dodajZaposlenogEmail")
+                            .form-group 
+                                label.col-form-label(for="dodajZaposlenogTelefon") 
+                                    |Telefon
+                                input.form-control(type="text", id="dodajZaposlenogTelefon") 
+                            .form-group 
+                                label.col-form-label(for="dodajZaposlenogUloga") 
+                                    |Uloga
+                                select#dodajZaposlenogUloga.form-control
+                                    option(value='1')| Farmaceutski tehničar
+                                    option(value='2')| Diplomirani farmaceut
+
+                    .modal-footer
+                        button.btn.btn-primary#dodajZaposlenogSacuvajDugme(type="button")
+                            |Sačuvaj
+
+append scripts
+    
+    //- ZA TABELE SKRIPTE
+    script(src='https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js', crossorigin='anonymous')
+    script(src='https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js', crossorigin='anonymous')
+    script(src='js/zaposleni/zaposleni.js', type="module")
+

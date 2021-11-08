@@ -1,0 +1,70 @@
+nav(class=['sb-sidenav', 'accordion'] class=sidenavStyle)#sidenavAccordion
+        
+    .sb-sidenav-menu
+        
+        .nav#side-nav
+        
+            a.nav-link#side-nav-Izdavanje(href='index.html')
+                .sb-nav-link-icon
+                    i.fas.fa-home
+                | Izdavanje
+
+
+            a.nav-link#side-nav-SpisakLekova(href='spisaklekova.html')
+                .sb-nav-link-icon
+                    i.fas.fa-pills
+                | Spisak lekova
+
+            a.nav-link#side-nav-Porudzbine(href='porudzbine.html')
+                .sb-nav-link-icon
+                    i.fas.fa-archive
+                | Porudžbine
+
+            a.nav-link#side-nav-Zaposleni(href='zaposleni.html')
+                .sb-nav-link-icon
+                    i.fas.fa-users
+                | Zaposleni
+            
+            a.nav-link.collapsed#side-nav-Vlasnik(href='#', data-toggle='collapse' data-target='#collapsePages' aria-expanded='false' aria-controls='collapsePages')
+                .sb-nav-link-icon
+                    i.fas.fa-dollar-sign
+                | Vlasnik
+                .sb-sidenav-collapse-arrow
+                    i.fas.fa-angle-down
+            #collapsePages.collapse(aria-labelledby='headingTwo', data-parent='#sidenavAccordion')
+                nav.sb-sidenav-menu-nested.nav.accordion#sidenavAccordionPages
+                    a.nav-link(href='grafici.html')
+                        .sb-nav-link-icon
+                            i.fas.fa-chart-line
+                        | Statistika lanca
+                    a.nav-link(href='apoteke.html')
+                        .sb-nav-link-icon
+                            i.fas.fa-clinic-medical
+                        | Apoteke       
+            a.nav-link#side-nav-Grafici(href='grafici.html')
+                .sb-nav-link-icon
+                    i.fas.fa-chart-line
+                | Statistika lanca
+            a.nav-link#side-nav-Apoteke(href='apoteke.html')
+                .sb-nav-link-icon
+                    i.fas.fa-clinic-medical
+                | Apoteke
+                    
+                //- a.nav-link.collapsed(href='#', data-toggle='collapse' data-target='#pagesCollapseError' aria-expanded='false' aria-controls='pagesCollapseError')
+                //-     | Error
+                //-     .sb-sidenav-collapse-arrow
+                //-         i.fas.fa-angle-down
+                //- #pagesCollapseError.collapse(aria-labelledby='headingOne', data-parent='#sidenavAccordionPages')
+                //-     nav.sb-sidenav-menu-nested.nav
+                //-         a.nav-link(href='401.html') 401 Page
+                //-         a.nav-link(href='404.html') 404 Page
+                //-         a.nav-link(href='500.html') 500 Page
+    sb.side-nav-footer
+        span#vremeSideNav
+            |
+
+                            
+append scripts
+        script(src='js/side-nav/side-nav.js', type="module")
+        script(src='js/side-nav/vreme.js', type="module")
+        script(src='js/script.js', type="text/html")

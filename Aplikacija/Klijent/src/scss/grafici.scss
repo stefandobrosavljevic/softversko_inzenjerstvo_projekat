@@ -1,0 +1,25 @@
+.selectBox, .selectBoxPrvi{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+    select{
+        width: 250px;
+        margin-right: 10px;
+        text-align: center;
+    }
+
+}
+
+.selectBoxPrvi{
+    margin-top: 0;
+}
+
+
+#tabelaNajprodavanijiLekovi th, #tabelaNajprodavanijiLekovi td{
+    width: 50%;
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding-left: 15px;
+    text-align: center;
+}
+

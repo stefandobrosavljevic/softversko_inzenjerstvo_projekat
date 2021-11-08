@@ -1,0 +1,85 @@
+extends ../layouts/dashboard.pug
+
+block config
+    - var bodyClass = 'sb-nav-fixed'
+    - var pageTitle = 'Spisak lekova';
+    - var sidenavStyle = 'sb-sidenav-dark'
+    
+append css
+    link(href='https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css', rel='stylesheet', crossorigin='anonymous')
+ 
+
+block content
+    
+    .container-fluid
+        include includes/page-header.pug
+
+        .content.content-spisakLekova
+            .card.mb-9.col-xl-9(style="margin-right: 20px;")
+                .card-header
+                    i.fas.fa-capsules
+                    | Baza lekova
+                .card-body
+                    include includes/spisaklekovatable.pug
+            .buttons-container.col-xl-3
+                .buttons
+                    //- button.dugmeDodajLek.dugmeDesno(data-toggle="modal", data-target="#ModalDodajLek")
+                    //-     |Dodaj novi lek
+                    //- button.dugmeKasa.dugmeDesno
+                    //-     |Dodaj izabrane lekove za izdavanje
+    
+        .modal.fade#ModalDodajLek(tabindex="-1", role="dialog", aria-labelledby="exampleModalCenterTitle", aria-hidden="true")
+            .modal-dialog.modal-dialog-centered(role="document")
+                .modal-content 
+                    .modal-header 
+                        h5.modal-title 
+                            |Novi lek
+                        button.close(type="button", data-dismiss="modal", aria-label="Close")
+                            span(aria-hidden="true")
+                                |&times;
+                    .modal-body
+                        form(action="#")
+                            .form-inline.form-group
+                                label.col-form-label(for="dodajLekIme") 
+                                    |Ime 
+                                input.form-control(type="text", id="dodajLekIme")
+                            .form-group.form-inline
+                                label.col-form-label(for="dodajLekSifra") 
+                                    |Šifra
+                                input.form-control(type="number", id="dodajLekSifra")
+                            .form-group 
+                                label.col-form-label(for="dodajLekCena") 
+                                    |Cena
+                                input.form-control(type="number", id="dodajLekCena")
+                            .form-group 
+                                label.col-form-label(for="dodajLekOpis") 
+                                    |Opis
+                                textarea.form-control(name="", cols="20", rows="5", id="dodajLekOpis") 
+                            .form-group 
+                                label.col-form-label(for="dodajLekKolicina") 
+                                    |Količina
+                                input.form-control(type="number", id="dodajLekKolicina")
+                            .form-group 
+                                label.col-form-label(for="dodajLekKritKolicina") 
+                                    |Kritična količina
+                                input.form-control(type="number", id="dodajLekKritKolicina")
+                            .form-group 
+                                label.col-form-label(for="dodajLekDeljiv") 
+                                    |Deljiv
+                                select#dodajLekDeljiv.form-control
+                                    option(value='Da')| Da 
+                                    option(value='Ne')| Ne 
+                            .form-group 
+                                label.col-form-label(for="dodajLekBrTabli") 
+                                    |Broj tabli u kutiji
+                                input.form-control(type="number", id="dodajLekBrTabli")
+
+                    .modal-footer
+                        button.btn.btn-primary#dodajLekSacuvajDugme(type="button")
+                            |Sačuvaj 
+append scripts
+    
+    //- ZA TABELE SKRIPTE
+    script(src='https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js', crossorigin='anonymous')
+    script(src='https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js', crossorigin='anonymous')
+    script(src='js/spisakLekova/spisakLekova.js', type="module")

@@ -1,0 +1,59 @@
+extends ../layouts/dashboard.pug
+
+block config
+    - var bodyClass = 'sb-nav-fixed'
+    - var pageTitle = 'Apoteke';
+    - var sidenavStyle = 'sb-sidenav-dark'
+    
+append css
+    link(href='https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css', rel='stylesheet', crossorigin='anonymous')
+ 
+block content
+    
+    .container-fluid
+        include includes/page-header.pug
+
+        .content.content-spisakLekova
+            .card.mb-9.col-xl-9
+                .card-header
+                    i.fas.fa-clinic-medical
+                    | Apoteke
+                .card-body
+                    include includes/apoteke-table.pug
+            .buttons-container 
+                .buttons
+
+        .modal.fade#ModalDodajApoteku(tabindex="-1", role="dialog", aria-labelledby="exampleModalCenterTitle", aria-hidden="true")
+            .modal-dialog.modal-dialog-centered(role="document")
+                .modal-content 
+                    .modal-header 
+                        h5.modal-title 
+                            |Nova apoteka
+                        button.close(type="button", data-dismiss="modal", aria-label="Close")
+                            span(aria-hidden="true")
+                                |&times;
+                    .modal-body
+                        form(action="#")
+                            .form-inline.form-group
+                                label.col-form-label(for="dodajApotekuAdresa") 
+                                    |Adresa 
+                                input.form-control(type="text", id="dodajApotekuAdresa")
+                            .form-inline.form-group
+                                label.col-form-label(for="dodajApotekuGrad") 
+                                    |Grad 
+                                input.form-control(type="text", id="dodajApotekuGrad")
+                            .form-inline.form-group
+                                label.col-form-label(for="dodajApotekuTelefon") 
+                                    |Telefon 
+                                input.form-control(type="text", id="dodajApotekuTelefon")
+
+                    .modal-footer
+                        button.btn.btn-primary#sacuvajApotekuDugme(type="button")
+                            |Sačuvaj 
+
+append scripts
+    
+    //- ZA TABELE SKRIPTE
+    script(src='https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js', crossorigin='anonymous')
+    script(src='https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js', crossorigin='anonymous')
+    script(src='js/apotekeVlasnik/apotekeVlasnik.js', type="module")

@@ -1,0 +1,80 @@
+extends ../layouts/dashboard.pug
+
+block config
+    - var bodyClass = 'sb-nav-fixed'
+    - var pageTitle = 'Statistika lanca apoteka'
+    - var sidenavStyle = 'sb-sidenav-dark'
+
+block content
+    .container-fluid
+        include includes/page-header.pug
+
+        .mb-2.selectBoxPrvi
+            select.form-control#selectMesecePrihod
+                option(value='3')| Poslednja 3 meseca
+                option(value='6')| Poslednjih 6 meseci
+                option(value='12')| Poslednjih 12 meseci 
+                option(value='24')| Poslednja 24 meseca
+        .card.mb-4
+            .card-header
+                i.fas.fa-chart-bar.mr-1
+                | Prihod / Rashod lanca apoteka
+            .card-body
+                canvas#myBarChart(width='100%', height='30')
+            //.card-footer.small.text-muted Updated yesterday at 11:59 PM
+        
+        
+        .mb-2.selectBox 
+            select.form-control#selectMeseciBrojLekova
+                option(value='3')| Poslednja 3 meseca
+                option(value='6')| Poslednjih 6 meseci
+                option(value='12')| Poslednjih 12 meseci 
+                option(value='24')| Poslednja 24 meseca
+                //option(value='1000')| Od početka rada apoteka
+
+        .card.mb-4
+            .card-header
+                i.fas.fa-chart-area.mr-1
+                | Broj izvšenih prodaja u lancu apoteka
+            .card-body
+                canvas#myAreaChart(width='100%', height='40')
+        
+
+        .mb-2.selectBox
+            select.form-control#selectMeseciZarada
+                option(value='3')| Poslednja 3 meseca
+                option(value='6')| Poslednjih 6 meseci
+                option(value='12')| Poslednjih 12 meseci 
+                option(value='24')| Poslednja 24 meseca
+
+        .card.mb-4
+            .card-header
+                i.fas.fa-chart-pie.mr-1
+                | Zarada svih apoteka
+            .card-body
+                canvas#myPieChart(width='100%', height='40')
+
+        .row.d-flex.justify-content-center
+            .col-xl-6
+                .card.mb-4
+                    .card-header
+                        i.fas.fa-table.mr-1
+                        | Najprodavaniji lekovi
+                    .card-body
+                        table#tabelaNajprodavanijiLekovi(width='100%', height='50')
+                            thead
+                                tr 
+                                    th Ime - šifra
+                                    th Prodata količina
+                            tbody
+
+
+
+append scripts
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js', crossorigin='anonymous')
+
+    script(src='js/grafici/prihod-rashod.js', type="module")
+    script(src='js/grafici/apoteke-zarada.js', type="module")
+    script(src='js/grafici/prodati-lekovi.js', type="module")
+    script(src='js/grafici/najprodavanijiLekovi.js', type="module")
+    

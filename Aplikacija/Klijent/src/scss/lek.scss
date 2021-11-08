@@ -1,0 +1,218 @@
+#podaciLeka{
+    display: flex;
+    flex-direction: column;
+    margin-left: 15px;
+}
+
+.labele{
+    background-color:lightblue;
+    margin: 10px;
+    label{
+        margin-right: 10px;
+        font-size: 20px;
+    }
+    .labelepodaci{
+        font-size: 23px;
+    }
+}
+
+.dugmici{
+    display: flex;
+    justify-content: center;
+}
+
+.inputpodaci{
+    font-size: 21.1px;
+}
+
+#buttonPrikaz{
+    margin: 0px 20px;
+}
+
+.checkbox{
+    zoom: 1.5;
+    transform: scale(1.5);
+    -ms-transform: scale(1.5);
+    -webkit-transform: scale(1.5);
+    -o-transform: scale(1.5);
+    -moz-transform: scale(1.5);
+}
+
+
+.body-prikaz{
+    height: 600px;
+}
+
+
+.row{
+    height: 100%;
+    .product-entry{
+        display: flex;
+        flex-direction: row;
+        background-color: rgb(220, 240, 247);
+        height: 100%;
+        width: 100%;
+        .img-pozicija{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .img-responsive{
+                height: 270px;
+                width: auto;
+            }
+        }
+        .podaci-pozicija{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            margin: 50px 0;
+            .pod{
+                margin: 8px 0;
+                font-size: 20px
+            }
+            .imeLeka{
+                font-size: 50px;
+                color: rgb(57, 57, 126);
+                margin-top: 0;
+                font-weight:bold;
+            }
+            .sifraLeka{
+                margin-top: 0;
+                font-size: 27px;
+                font-weight: 600;
+            }
+            .opis-container{
+                margin: 0 0;
+                font-size: 16px;
+                .opisLeka{
+                    margin-bottom: 0;
+                }
+            }
+
+            .kolicine{
+                display: flex;
+                flex-direction: row;
+                margin-top: 0px;
+                p{
+                    margin-right: 20px;
+                    font-size: 20px;
+                }
+            }
+            .product-price{
+                font-size: 40px;
+                font-weight: 700;
+                color: rgb(50, 50, 112);
+            }
+        }
+
+        .dugmiciZaLek {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            margin-top: 20px;
+            .dugmeIzmeniLek, .dugmeObrisiLek {
+                background-color: DodgerBlue;
+                border: none;
+                color: white;
+                padding: 12px 16px;
+                font-size: 16px;
+                font-weight: 550;
+                cursor: pointer;
+                border-radius: 10px;
+                width: 110px;
+                margin: 10px 0;
+                margin-right: 30px;
+            }
+            .dugmeObrisiLek{
+                background-color: rgb(243, 97, 97);
+                color: black;
+            }
+            .dugmeIzmeniLek:hover {
+                background-color: RoyalBlue;
+            }
+            .dugmeObrisiLek:hover{
+                background-color: rgb(245, 60, 60);
+            }
+        }
+    }
+}
+
+
+#ModalIzmeniLek{
+    .modal-body{
+        p{
+            margin-bottom: 0px;
+            font-size: large;
+            text-align: center;
+            font-weight: 550;
+        }
+        .solid{
+            margin: 8px 0;
+        }
+        .form-group{
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            label{
+                margin-right: 30px;
+                font-size: 17px;
+            }
+            input, textarea, select{
+                width: 68%;
+            }
+            select{
+                font-size: 17px;
+                text-align: start;
+            }
+        }
+    }
+    .modal-footer{
+        justify-content: center;
+       .btn{
+            width: 160px;
+        }
+    }
+}
+
+
+#ModalObrisiLek{
+    height: 80%;
+    .modal-dialog{
+        .modal-body{
+            h1{
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            h5{
+                text-align: center;
+            }
+        }
+        .modal-footer{
+            .btn{
+                background-color: #04AA6D;
+                color: white;
+                padding: 14px 20px;
+                margin: 8px 0;
+                border: none;
+                cursor: pointer;
+                width: 100%;
+                opacity: 0.8;
+                float: left;
+                width: 49%;
+                border-radius: 0;
+            }
+            .btn:hover{
+                opacity: 1;
+            }
+            #dugmeOtkaziBrisanje{
+                background-color: #ccc;
+                color: black;
+            }
+            #dugmePotvrdiBrisanje{
+                background-color: #f44336;
+            }
+        }
+    }
+}

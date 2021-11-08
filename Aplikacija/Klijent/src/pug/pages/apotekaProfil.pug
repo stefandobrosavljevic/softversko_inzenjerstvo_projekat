@@ -1,0 +1,189 @@
+extends ../layouts/dashboard.pug
+
+block config
+    - var bodyClass = 'sb-nav-fixed'
+    - var pageTitle = 'Apoteka';
+    - var apotekaProfil = true;
+    - var sidenavStyle = 'sb-sidenav-dark'
+    
+append css
+    link(href='https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css', rel='stylesheet', crossorigin='anonymous')
+ 
+block content
+    
+    .container-fluid
+        include includes/page-header.pug
+
+        .mb-4.col-xl-9.podaciApotekeBox
+            h3(style="padding-top: 10px;")
+                |Podaci apoteke
+            .podaciApoteke 
+                table#tabelaPodaciApoteke(width='100%', height='50')
+                    tr 
+                        td
+                            p#idApoteke  
+                                |
+                        td
+                            p#adresaApoteke 
+                                |
+                    tr
+                        td
+                            p#gradApoteke
+                                |
+                        td
+                            p#telefonApoteke 
+                                |
+        
+        .content.content-spisakLekova
+            .card.mb-9.col-xl-9
+                .card-header
+                    i.fas.fa-clinic-medical
+                    | Zaposleni
+                .card-body
+
+                    
+
+                    include includes/zaposleni-table.pug
+            .buttons-container 
+                .buttons
+                    button.dugmeDodajZaposlenog.dugmeDesno(data-toggle="modal", data-target="#ModalIzmeniApoteku")
+                        |Izmeni apoteku  
+                    button.dugmeObrisiApoteku.dugmeDesno(data-toggle="modal", data-target="#ModalObrisiApoteku")
+                        |Obriši apoteku
+                    button.dugmeDodajZaposlenog.dugmeDesno(data-toggle="modal", data-target="#ModalDodajZaposlenog")
+                        |Dodaj zaposlenog
+
+
+
+        .mb-2.selectBox
+            select.form-control#selectMesecePrihod
+                option(value='3')| Poslednja 3 meseca
+                option(value='6')| Poslednjih 6 meseci
+                option(value='12')| Poslednjih 12 meseci 
+                option(value='24')| Poslednja 24 meseca
+        .card.mb-4
+            .card-header
+                i.fas.fa-chart-bar.mr-1
+                | Prihod / Rashod
+            .card-body
+                canvas#myBarChart(width='100%', height='30')
+
+        .mb-2.selectBox 
+            select.form-control#selectMeseciBrojLekova
+                option(value='3')| Poslednja 3 meseca
+                option(value='6')| Poslednjih 6 meseci
+                option(value='12')| Poslednjih 12 meseci 
+                option(value='24')| Poslednja 24 meseca
+
+        .card.mb-4
+            .card-header
+                i.fas.fa-chart-area.mr-1
+                | Broj izvšenih prodaja
+            .card-body
+                canvas#myAreaChart(width='100%', height='30')
+
+
+
+        .modal.fade#ModalIzmeniApoteku(tabindex="-1", role="dialog", aria-labelledby="exampleModalCenterTitle", aria-hidden="true")
+            .modal-dialog.modal-dialog-centered(role="document")
+                .modal-content 
+                    .modal-header 
+                        h5.modal-title 
+                            |Izmena podataka apoteke
+                        button.close(type="button", data-dismiss="modal", aria-label="Close")
+                            span(aria-hidden="true")
+                                |&times;
+                    .modal-body
+                        form(action="#")
+                            .form-inline.form-group
+                                label.col-form-label(for="izmeniApotekuAdresa") 
+                                    |Adresa 
+                                input.form-control(type="text", id="izmeniApotekuAdresa")
+                            .form-inline.form-group
+                                label.col-form-label(for="izmeniApotekuGrad") 
+                                    |Grad 
+                                input.form-control(type="text", id="izmeniApotekuGrad")
+                            .form-inline.form-group
+                                label.col-form-label(for="izmeniApotekuTelefon") 
+                                    |Telefon
+                                input.form-control(type="text", id="izmeniApotekuTelefon")
+
+
+                    .modal-footer
+                        button.btn.btn-primary#izmeniApotekuDugme(type="button", data-dismiss="modal", aria-label="Close")
+                            |Sačuvaj 
+
+
+        .modal.fade#ModalDodajZaposlenog(tabindex="-1", role="dialog", aria-labelledby="exampleModalCenterTitle", aria-hidden="true")
+            .modal-dialog.modal-dialog-centered(role="document")
+                .modal-content 
+                    .modal-header 
+                        h5.modal-title 
+                            |Novi zaposleni
+                        button.close(type="button", data-dismiss="modal", aria-label="Close")
+                            span(aria-hidden="true")
+                                |&times;
+                    .modal-body
+                        form(action="#")#modal-body-forma
+                            .form-inline.form-group
+                                label.col-form-label(for="dodajZaposlenogKorisnickoIme") 
+                                    |Korisničko ime
+                                input.form-control(type="text", id="dodajZaposlenogKorisnickoIme")
+                            .form-inline.form-group
+                                label.col-form-label(for="dodajZaposlenogLozinka") 
+                                    |Lozinka 
+                                input.form-control(type="password", id="dodajZaposlenogLozinka")
+                                button#togglePassword
+                                    i.fa.fa-eye
+                            .form-inline.form-group
+                                label.col-form-label(for="dodajZaposlenogIme") 
+                                    |Ime 
+                                input.form-control(type="text", id="dodajZaposlenogIme")
+                            .form-group.form-inline
+                                label.col-form-label(for="dodajZaposlenogPrezime") 
+                                    |Prezime
+                                input.form-control(type="text", id="dodajZaposlenogPrezime")
+                            .form-group 
+                                label.col-form-label(for="dodajZaposlenogEmail") 
+                                    |Email
+                                input.form-control(type="text", id="dodajZaposlenogEmail")
+                            .form-group 
+                                label.col-form-label(for="dodajZaposlenogTelefon") 
+                                    |Telefon
+                                input.form-control(type="text", id="dodajZaposlenogTelefon") 
+                            .form-group 
+                                label.col-form-label(for="dodajZaposlenogUloga") 
+                                    |Uloga
+                                select#dodajZaposlenogUloga.form-control
+                                    option(value='1')| Farmaceutski tehničar
+                                    option(value='2')| Diplomirani farmaceut
+                                    option(value='3')| Upravnik apoteke
+                                    option(value='4')| Vlasnik
+
+                    .modal-footer
+                        button.btn.btn-primary#dodajZaposlenogSacuvajDugme(type="button")
+                            |Sačuvaj
+
+        .modal.fade#ModalObrisiApoteku(tabindex="-1", role="dialog", aria-labelledby="exampleModalCenterTitle", aria-hidden="true")
+            .modal-dialog.modal-dialog-centered(role="document")
+                .modal-content 
+                    .modal-body 
+                        h1 
+                            |Brisanje apoteke
+                        h5#modal-text-obrisiApoteku
+                            |
+
+                    .modal-footer
+                        button.btn.btn-secondary#dugmeOtkaziBrisanje(type="button", data-dismiss="modal")
+                            |Otkaži
+                        button.btn.btn-danger#dugmePotvrdiBrisanje(type="button", data-dismiss="modal")
+                            |Obriši
+append scripts
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js', crossorigin='anonymous')
+
+    //- ZA TABELE SKRIPTE
+    script(src='https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js', crossorigin='anonymous')
+    script(src='https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js', crossorigin='anonymous')
+    script(src='js/apotekeVlasnik/apoteka-profil.js', type="module")
+    script(src='js/apotekeVlasnik/grafik-prihod-rashod.js', type="module")
+    script(src='js/apotekeVlasnik/grafik-brojProdatihLekova.js', type="module")
